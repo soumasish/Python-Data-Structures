@@ -30,15 +30,7 @@ class Stack:
         return self.size
 
     def __repr__(self):
-        stack_str = '[ '
-        current = self.top
-        while current is not None:
-            stack_str += str(current.data)
-            stack_str += ' '
-            current = current.next
-
-        stack_str += ']'
-        return stack_str
+        return "[{}]".format(", ".join(map(str, self)))
 
     def __iter__(self):
         current = self.top
@@ -53,3 +45,6 @@ class Node:
             raise ValueError('Cannot instantiate node with a None value.')
         self.data = data
         self.next = None
+
+    def __repr__(self):
+        return str(self.data)
