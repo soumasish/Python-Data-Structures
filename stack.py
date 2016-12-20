@@ -40,6 +40,12 @@ class Stack:
         stack_str += ']'
         return stack_str
 
+    def __iter__(self):
+        current = self.top
+        while current is not None:
+            yield current
+            current = current.next
+
 
 class Node:
     def __init__(self, data):

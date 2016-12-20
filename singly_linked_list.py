@@ -13,7 +13,9 @@ class SList:
             p = Node(item)
             p.next = self.root
             self.root = p
+
     """Remove the element at the specific index"""
+
     def remove(self, index):
         if index < 0 or index >= self.size:
             raise ValueError('Index cannot be negative or greater than the size of the list')
@@ -22,7 +24,7 @@ class SList:
         if index == 0:
             self.root = self.root.next
         else:
-            for _ in range(index -1):
+            for _ in range(index - 1):
                 current = current.next
             p = current.next.next
             if p is not None:
@@ -32,23 +34,22 @@ class SList:
 
         self.size -= 1
 
+    def __len__(self):
+        return self.size
+
     def __repr__(self):
-        res = '[ '
+        "[{}]".format(", ".join(map(str, self)))
+
+    def __iter__(self):
         current = self.root
         while current is not None:
-            res += str(current.data)
-            res += ' '
+            yield current
             current = current.next
-        res += ']'
-        return res
 
 
 class Node:
     def __init__(self, data):
-        try:
-            if not data:
-                raise ValueError
-            self.data = data
-            self.next = None
-        except ValueError:
+        if data is None:
             raise ValueError('Node cannot be instantiated without an item')
+        self.data = data
+        self.next = None
