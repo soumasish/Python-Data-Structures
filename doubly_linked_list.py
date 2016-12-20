@@ -36,15 +36,14 @@ class DList:
     def __sizeof__(self):
         return self.size
 
-    def __repr__(self):
-        res = '[ '
+    def __iter__(self):
         current = self.head
         while current is not None:
-            res += str(current.data)
-            res += ' '
+            yield current
             current = current.next
-        res += ']'
-        return res
+
+    def __repr__(self):
+        return "[{}]".format(", " .join(map(str, self)))
 
 
 class Node:
@@ -54,4 +53,7 @@ class Node:
         self.data = data
         self.previous = None
         self.next = None
+
+    def __repr__(self):
+        return str(self.data)
 

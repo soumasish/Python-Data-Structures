@@ -38,7 +38,7 @@ class SList:
         return self.size
 
     def __repr__(self):
-        "[{}]".format(", ".join(map(str, self)))
+        return "[{}]".format(", ".join(map(str, self)))
 
     def __iter__(self):
         current = self.root
@@ -53,3 +53,6 @@ class Node:
             raise ValueError('Node cannot be instantiated without an item')
         self.data = data
         self.next = None
+
+    def __repr__(self):
+        return str(self.data)
