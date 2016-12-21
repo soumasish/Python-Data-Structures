@@ -1,12 +1,14 @@
-from singly_linked_list import SList
+from binary_search_tree import BST
+
 
 def main():
-   l = SList()
-   l.insert(12)
-   l.insert(11)
-   l.insert(2)
-   l.insert(21)
-   print(l)
+    pass
+    b = BST()
+    b.insert(12)
+    b.insert(9)
+    b.insert(13)
+    b.preorder()
+
 
 if __name__ == '__main__':
     main()
